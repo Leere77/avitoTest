@@ -3,7 +3,13 @@ import React from 'react'
 import './Options.scss'
 
 const Options = ({ filter, setCategory, setPrice, setSortType, setFavFilter }) => {
-    const categories = ['all', 'immovable', 'cameras', 'auto', 'laptops']
+    const categories = {
+        'all': 'Все',
+        'immovable': 'Недвидимость',
+        'cameras': 'Фотоаппараты ',
+        'auto': 'Автомобили',
+        'laptops': 'Ноутбуки'
+    }
 
     const priceInputHandler = e => {
         const {from, to} = filter.price
@@ -14,13 +20,13 @@ const Options = ({ filter, setCategory, setPrice, setSortType, setFavFilter }) =
     return (
         <div className="options">
             <div className="options__categories options--margins">
-                {categories.map(cat => (
+                {Object.keys(categories).map(cat => (
                     <span 
                         category={cat}
                         key={cat}
-                        className="options__category"
+                        className={`options__category ${filter.category === cat ? 'options__category--current': ''}`}
                         onClick={e => setCategory(e.target.attributes.category.value)}>
-                        {cat}
+                        {categories[cat]}
                     </span>
                 ))}
             </div>
