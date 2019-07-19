@@ -28,8 +28,10 @@ class App extends React.Component {
                 return favorites.indexOf(product.id) > -1
             })
 
-        if(filter.sortType !== 'default')
-            products = products.sort((a, b) => a[filter.sortType] - b[filter.sortType])
+        if(filter.sortType === 'price')
+            products = products.sort((a, b) => a.price - b.price)
+        else if (filter.sortType === 'date')
+            products = products.sort((a, b) => b.date - a.date)
 
         return (
             <>

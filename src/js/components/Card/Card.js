@@ -11,13 +11,21 @@ const priceSpaces = sum => {
     return res.reverse().join(' ')
 }
 
+const dateFormat = date => {
+    const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
+    const minutes = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()
+    const hours = date.getHours() < 10 ? `0${date.getHours()}` : date.getHours()
+
+    return `${date.getDate()} ${months[date.getMonth()]} ${hours}:${minutes}`
+}
+
 const Card = ({product, seller, addFavorite, isInFavorites}) => {
     return (
         <div className="card">
             <div>
                 <img
                     className="card__picture"
-                    src={product.pictures[0].slice(2)}
+                    src={product.pictures[0]}
                     alt={product.title}
                 />
             </div>
@@ -33,6 +41,7 @@ const Card = ({product, seller, addFavorite, isInFavorites}) => {
                 </p>
 
                 <p>{`(ещё ${product.pictures.length - 1} фото)`}</p>
+                <p>{dateFormat(product.date)}</p>
                 <p>{`Продавец: ${seller.name}`}</p>
                 <p>{`Рейтинг продавца: ${seller.rating}`}</p>
             </div>
