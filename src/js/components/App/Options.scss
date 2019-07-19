@@ -1,0 +1,43 @@
+.options {
+    &__categories {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 1rem 0;
+    }
+
+    &__category {
+        margin: 0 1.5rem;
+    }
+
+    &__price--input {
+        margin-right: 2rem;
+    }
+
+    &__select {
+        border: none;
+        border-bottom: 1px solid gray;
+        height: 2rem;
+    }
+
+    &--margins {
+        margin: 1rem 0;
+    }
+}
+
+@media (max-width: 450px) {
+    .options {
+        &__categories {
+            flex-direction: column;
+        }
+
+        &__category {
+            margin: 0;
+        }
+
+        &__select {
+            width: 100%;
+        }
+    
+    }
+}

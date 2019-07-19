@@ -1,0 +1,34 @@
+.card {
+    margin-top: 1rem;
+    display: flex;
+
+    &__picture {
+        display: block;
+        width: 10rem;
+        height: 10rem;
+        margin-right: 0.75rem;
+    }
+
+    &__descriptionSection {
+        color: gray;
+        font-size: 0.75rem;
+    }
+
+    &__title {
+        font-size: 1rem;
+        color: black;
+        font-weight: bold;
+    }
+
+    &__price {
+        font-weight: bold;
+        color: black;
+    }
+}
+
+@media (max-width: 450px) {
+    .card__picture {
+        width: 7rem;
+        height: 7rem;
+    }
+}
