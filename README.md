@@ -8,4 +8,4 @@
 	`npm install`  
 	`npm run dev` 
 - GitHub Pages  
-	[Рабочая версия задания](https://leere77.github.io/avitoTest/dist)
+	[Рабочая версия задания](https://leere77.github.io/avitoTest/dist/index.html)
