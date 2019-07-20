@@ -5,7 +5,7 @@ import './Options.scss'
 const Options = ({ filter, setCategory, setPrice, setSortType, setFavFilter }) => {
     const categories = {
         'all': 'Все',
-        'immovable': 'Недвидимость',
+        'immovable': 'Недвижимость',
         'cameras': 'Фотоаппараты ',
         'auto': 'Автомобили',
         'laptops': 'Ноутбуки'

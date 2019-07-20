@@ -1,14 +1,13 @@
 .options {
     &__categories {
         display: flex;
-        justify-content: space-between;
         flex-wrap: wrap;
         margin: 1rem 0;
     }
 
     &__category {
-        margin: 0 1.5rem;
-        padding-bottom: .2rem;
+        margin-right: 1.5rem;
+        padding: 0.5rem 0;
         cursor: pointer;
         border-bottom: 1px solid transparent;
         transition: border-bottom-color .2s ease-in;
@@ -30,23 +29,12 @@
     }
 
     &--margins {
-        margin: 1rem 0;
+        margin: 1.25rem 0;
     }
 }
 
 @media (max-width: 450px) {
-    .options {
-        &__categories {
-            flex-direction: column;
-        }
-
-        &__category {
-            margin: 0;
-        }
-
-        &__select {
-            width: 100%;
-        }
-    
+    .options__select {
+        width: 100%;
     }
 }

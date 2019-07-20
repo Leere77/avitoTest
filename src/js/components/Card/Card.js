@@ -30,7 +30,7 @@ const Card = ({product, seller, addFavorite, isInFavorites}) => {
                 />
             </div>
 
-            <div className="card__descriptionSection">
+            <div className="card__description">
                 <p className="card__title">{product.title.charAt(0).toUpperCase().concat(product.title.slice(1))}</p>
 
                 {isInFavorites && <span>[в избранном]</span>}
