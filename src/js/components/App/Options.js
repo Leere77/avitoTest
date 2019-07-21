@@ -2,7 +2,13 @@ import React from 'react'
 
 import './Options.scss'
 
-const Options = ({ filter, setCategory, setPrice, setSortType, setFavFilter }) => {
+const Options = ({ 
+    filter,
+    setCategory,
+    setPrice,
+    setSortType,
+    setFavFilter
+}) => {
     const categories = {
         'all': 'Все',
         'immovable': 'Недвижимость',
@@ -30,14 +36,14 @@ const Options = ({ filter, setCategory, setPrice, setSortType, setFavFilter }) =
                     </span>
                 ))}
             </div>
-            <div className="options__price options--margins">
+            <div className="options--margins">
                 <span>Цена:</span>
                 <br />
                 <input
                     type="number"
                     name="from"
                     placeholder="От"
-                    className="options__price--input"
+                    className="options__price options__price--from"
                     onChange={priceInputHandler}
                     value={filter.price.from === 0 ? '': filter.price.from}
                 />
@@ -45,6 +51,7 @@ const Options = ({ filter, setCategory, setPrice, setSortType, setFavFilter }) =
                     type="number"
                     name="to"
                     placeholder="До"
+                    className="options__price"
                     onChange={priceInputHandler}
                     value={filter.price.to === Infinity || filter.price.to === 0 ? '': filter.price.to}
                 />

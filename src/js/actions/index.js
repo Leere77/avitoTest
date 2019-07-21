@@ -12,7 +12,7 @@ const setData = ({data: products}, {data: sellers}) => {
             ...product,
             price: Number(product.price),
             id: Number(product.id),
-            date: new Date(2019, rnd(12), rnd(31), rnd(24), rnd(60))
+            date: new Date(2019, rnd(7), rnd(20), rnd(24), rnd(60))
         }
     ))
 

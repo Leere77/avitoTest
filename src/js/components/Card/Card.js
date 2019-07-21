@@ -1,7 +1,9 @@
 import React from 'react'
 import './Card.scss'
 
-const priceSpaces = sum => {
+// В api не нашёл время размещения объявления, при получении данных генерируется случайное время от начала года до 20 июля 
+
+const priceSpaces = (sum = 0) => {
     sum = String(sum)
     let res = []
 
@@ -11,6 +13,8 @@ const priceSpaces = sum => {
     return res.reverse().join(' ')
 }
 
+const upperFirstSymbol = str => str.charAt(0).toUpperCase() + str.slice(1)
+
 const dateFormat = date => {
     const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
     const minutes = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()
@@ -19,31 +23,36 @@ const dateFormat = date => {
     return `${date.getDate()} ${months[date.getMonth()]} ${hours}:${minutes}`
 }
 
-const Card = ({product, seller, addFavorite, isInFavorites}) => {
+const Card = ({
+    product: { title, price, pictures, date },
+    seller: { name, rating },
+    addFavorite,
+    isInFavorites
+}) => {
     return (
         <div className="card">
             <div>
                 <img
                     className="card__picture"
-                    src={product.pictures[0]}
-                    alt={product.title}
+                    src={pictures[0]}
+                    alt={title}
                 />
             </div>
 
             <div className="card__description">
-                <p className="card__title">{product.title.charAt(0).toUpperCase().concat(product.title.slice(1))}</p>
+                <p className="card__title">{upperFirstSymbol(title)}</p>
 
                 {isInFavorites && <span>[в избранном]</span>}
-                {!isInFavorites && <span onClick={addFavorite}>[в избранное]</span>}
+                {!isInFavorites && <span onClick={addFavorite}>[добавить в избранное]</span>}
 
                 <p className="card__price">
-                    {Number.isNaN(product.price) ? 'Не указана' : `${priceSpaces(product.price)} ₽`}
+                    {Number.isNaN(price) ? 'Не указана' : `${priceSpaces(price)} ₽`}
                 </p>
 
-                <p>{`(ещё ${product.pictures.length - 1} фото)`}</p>
-                <p>{dateFormat(product.date)}</p>
-                <p>{`Продавец: ${seller.name}`}</p>
-                <p>{`Рейтинг продавца: ${seller.rating}`}</p>
+                <p>{`(ещё ${pictures.length - 1} фото)`}</p>
+                <p>{dateFormat(date)}</p>
+                <p>{`Продавец: ${name}`}</p>
+                <p>{`Рейтинг продавца: ${rating}`}</p>
             </div>
         </div>
     )
